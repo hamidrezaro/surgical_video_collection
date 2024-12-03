@@ -15,7 +15,7 @@ def download_youtube_channel(channel_url, output_folder="downloads", cookies_fil
         "subtitlesformat": "srt",  # Save subtitles in SRT format
         "writeinfojson": True,  # Save metadata in JSON format
         "writeannotations": True,  # Include annotations (if applicable)
-        "writethumbnail": True,  # Download video thumbnails
+        # "writethumbnail": True,  # Download video thumbnails
         "postprocessors": [
             {
                 "key": "FFmpegVideoConvertor",
@@ -32,6 +32,7 @@ def download_youtube_channel(channel_url, output_folder="downloads", cookies_fil
         "ignoreerrors": True,  
         # Skip downloading videos that already exist
         "nooverwrites": True,
+        "download_archive": os.path.join(output_folder, "downloaded_videos.txt"),  # Keep track of downloaded videos
     }
 
     # Add cookies file if provided
